@@ -1,0 +1,16 @@
+.profile-view {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  min-width: 320px;
+  background-color: var(--secondary-background-color);
+  border-radius: 12px;
+  
+  &__row {
+    padding: 16px;
+    background-color: rgb(57, 106, 255);
+    color: #fff;
+    margin-bottom: 16px;
+    border-radius: 8px;
+  }
+}

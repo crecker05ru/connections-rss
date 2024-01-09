@@ -1,0 +1,12 @@
+<div *ngIf="profile" class="profile-view">
+<div class="profile-view__email profile-view__row">Email: {{profile.email.S}}</div>
+<div class="profile-view__name profile-view__row">Name: @if(isEditMode){<input [formControl]="name" [value]="profile.name.S"/>} @else {<span>{{profile.name.S}}</span>}</div>
+<div class="profile-view__id profile-view__row">ID: {{profile.uid.S}}</div>
+<div class="profile-view__created profile-view__row">Created: {{profile.createdAt.S | date}}</div>
+@if(isEditMode){
+  <button [disabled]="isProfileLoading" (click)="saveProfile()">Save</button>
+  <button [disabled]="isProfileLoading" (click)="cancel()">Cancel</button>
+} @else {
+<button (click)="toEditMode()">Edit</button>
+}
+</div>

@@ -1,0 +1,9 @@
+.not-found {
+& a {
+  color: var(--link-color);
+  cursor: pointer;
+  &:hover {
+    color: var(--link-hover-color);
+  }
+}
+}

@@ -1,0 +1,44 @@
+<section class="registration">
+  <div class="registration__inner">
+    <div>    <h1 class="registration__title">Registration</h1>
+      <form class="registration__form"  (submit)="formSubmit()" [formGroup]="registrationForm">
+        <label class="registration__label"><span class="registration__span">first name</span>
+          <div class="registration__validation-message" *ngIf="registrationForm.controls['name'].errors?.['required'] && registrationForm.controls['name'].touched">Please enter a name</div>
+          <div class="registration__validation-message" *ngIf="registrationForm.controls['name'].errors?.['maxlength'] && registrationForm.controls['name'].touched">The name is maximum 40 characters</div>
+          <div class="registration__validation-message" *ngIf="registrationForm.controls['name'].errors?.['pattern'] && registrationForm.controls['name'].touched">Special symbols not allowed</div>
+          <input class="registration__input" formControlName="name"/>
+        </label>
+      <label class="registration__label"> <span class="registration__span">email</span>
+        <div class="registration__validation-message" *ngIf="registrationForm.controls['email'].errors?.['required'] && registrationForm.controls['email'].touched">Please enter a registration email</div>
+        <div class="registration__validation-message" *ngIf="registrationForm.controls['email'].invalid && registrationForm.controls['email'].touched">The registration email is invalid</div>
+        <input class="registration__input" formControlName="email"/>
+      </label>
+        
+        <label class="registration__label"><span class="registration__span">password</span>
+          <div class="registration__validation-message" *ngIf="registrationForm.controls['password'].errors?.['required'] && registrationForm.controls['password'].touched">Please enter a password</div>
+          <div class="registration__validation-message" *ngIf="registrationForm.controls['password'].invalid && registrationForm.controls['password'].touched">Your password isn't strong enough:</div>
+          <div class="registration__validation-message" *ngIf="registrationForm.controls['password'].errors?.['matchLength'] && registrationForm.controls['password'].touched">at least 8 characters</div>
+          <div class="registration__validation-message" *ngIf="registrationForm.controls['password'].errors?.['matchUpper'] && registrationForm.controls['password'].touched">at least 1 uppercase letter</div>
+          <div class="registration__validation-message" *ngIf="registrationForm.controls['password'].errors?.['matchLower'] && registrationForm.controls['password'].touched">at least 1 lowercase letter</div>
+          <div class="registration__validation-message" *ngIf="registrationForm.controls['password'].errors?.['matchDigits'] && registrationForm.controls['password'].touched">at least 1 digit</div>
+          <div class="registration__validation-message" *ngIf="registrationForm.controls['password'].errors?.['matchSpecials'] && registrationForm.controls['password'].touched">inclusion of at least one special character, e.g., ! # ? ]</div>
+          <input class="registration__input" formControlName="password"/>
+        </label>
+  
+        <button class="registration__button" type="submit" [disabled]="!registrationForm.valid || isButtonDisabled">Submit</button>
+      </form></div>
+<!-- 
+    <div if="isLogged">
+      <button class="registration__button" (click)="logout()">Logout</button>
+    </div> -->
+    @if(responseMessage){
+      <div class="registration__response-message snackbar" [class]="{'snackbar__show':responseMessage}">{{responseMessage}}</div>
+    }
+    <div>
+      <button class="registration__button" (click)="logout()">Logout</button>
+    </div>
+    <div>
+      <button  (click)="toSignInPage()">to signin page</button>
+    </div>
+  </div>
+</section>

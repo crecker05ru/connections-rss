@@ -1,0 +1,30 @@
+<section class="group-section">
+<div class="group-section__inner">
+  <h2>Groups</h2>
+  <div>Countdown to update {{countdown$ | async}}</div>
+  <my-modal id="group-section-modal">
+    <p>Are you sure?</p>
+    <button class="button__modal" (click)="confirmDelete()">Delete</button>
+    <button  class="button__modal" (click)="modalService.close();">Close</button>
+  </my-modal>
+  <my-modal id="create-group-modal">    
+    <label class="group-create__label"><span class="group-create__span">Enter group name</span>
+      <div class="group-create__validation-message" *ngIf="name.errors?.['required'] && name.touched">Please enter a group name</div>
+      <div class="group-create__validation-message" *ngIf="name.errors?.['maxlength'] && name.touched">The group name is maximum 30 characters</div>
+      <div class="group-create__validation-message" *ngIf="name.errors?.['pattern'] && name.touched">Group name can contains only letters, digits or spaces</div>
+      <input class="group-create__input" [formControl]="name"/>
+    </label>
+    <button class="button__modal" (click)="confirmCreate()" [disabled]="name.invalid">Create</button>
+    <button class="button__modal" (click)="modalService.close();">Close</button>
+  </my-modal>
+  <button  class="button__standart" (click)="update()" [disabled]="!canUpdate">Update</button>
+  <button class="button__standart" (click)="createGroup('create-group-modal')">Create new group</button>
+  <ul class="group-section__list"   >
+    <!-- <li><app-group-item [group]="item" ></app-group-item></li> -->
+    <li class="group-section__item" *ngFor="let item of groups?.Items"><a [routerLink]="['/group/' + item.id.S]">{{item.name.S}}</a>
+    @if(item.createdBy.S === userId){<button (click)="deleteGroup(item.id.S)">X</button>}
+    </li>
+  </ul>
+</div>
+<app-toast-messages [text]="responseMessage"></app-toast-messages>
+</section>

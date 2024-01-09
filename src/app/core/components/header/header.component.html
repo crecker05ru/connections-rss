@@ -1,0 +1,22 @@
+<div class="header__inner">
+  <div class="header__block">
+  <p><a routerLink="/">Conversation</a></p>
+
+  </div>
+  <div class="header__block">
+    <label class="header__switch" [class]="{'header__switch-checked':isDarkTheme}">
+      <span class="header__switch-span"></span>
+      <input type="checkbox" class="header__switch-input"
+      [checked]="isDarkTheme"
+      (change)="onThemeSwitchChange()"/>
+    </label>
+  </div>
+  <div class="header__block">
+    <nav class="header__navigation">
+      <a routerLink="signup">Signup</a>
+      <a routerLink="signin">Signin</a>
+      <a routerLink="profile">Profile</a>
+    </nav>
+  </div>
+
+</div>

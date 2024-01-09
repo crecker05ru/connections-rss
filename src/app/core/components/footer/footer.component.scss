@@ -1,0 +1,11 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+
+  &__svg {
+    width: 70px;
+    height: auto;
+    fill: var(--svg-background-color);
+  }
+}

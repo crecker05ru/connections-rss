@@ -1,0 +1,38 @@
+<section class="signin">
+  <div class="signin__inner">
+    <div>    <h1 class="signin__title">Signin</h1>
+      <form class="signin__form"  (submit)="formSubmit()" [formGroup]="signinForm">
+      <label class="signin__label"> <span class="signin__span">email</span>
+        <div class="signin__validation-message" *ngIf="signinForm.controls['email'].errors?.['required'] && signinForm.controls['email'].touched">Please enter a signin email</div>
+        <div class="signin__validation-message" *ngIf="signinForm.controls['email'].invalid && signinForm.controls['email'].touched">The signin email is invalid</div>
+        <input class="signin__input" formControlName="email"/>
+      </label>
+        
+        <label class="signin__label"><span class="signin__span">password</span>
+          <div class="signin__validation-message" *ngIf="signinForm.controls['password'].errors?.['required'] && signinForm.controls['password'].touched">Please enter a password</div>
+          <div class="signin__validation-message" *ngIf="signinForm.controls['password'].invalid && signinForm.controls['password'].touched">Your password isn't strong enough:</div>
+          <div class="signin__validation-message" *ngIf="signinForm.controls['password'].errors?.['matchLength'] && signinForm.controls['password'].touched">at least 8 characters</div>
+          <div class="signin__validation-message" *ngIf="signinForm.controls['password'].errors?.['matchUpper'] && signinForm.controls['password'].touched">at least 1 uppercase letter</div>
+          <div class="signin__validation-message" *ngIf="signinForm.controls['password'].errors?.['matchLower'] && signinForm.controls['password'].touched">at least 1 lowercase letter</div>
+          <div class="signin__validation-message" *ngIf="signinForm.controls['password'].errors?.['matchDigits'] && signinForm.controls['password'].touched">at least 1 digit</div>
+          <div class="signin__validation-message" *ngIf="signinForm.controls['password'].errors?.['matchSpecials'] && signinForm.controls['password'].touched">inclusion of at least one special character, e.g., ! # ? ]</div>
+          <input class="signin__input" formControlName="password"/>
+        </label>
+  
+        <button class="signin__button" type="submit" [disabled]="!signinForm.valid || isButtonDisabled">Submit</button>
+      </form></div>
+<!-- 
+    <div if="isLogged">
+      <button class="signin__button" (click)="logout()">Logout</button>
+    </div> -->
+    @if(responseMessage){
+      <div class="signin__response-message snackbar" [class]="{'snackbar__show':responseMessage}">{{responseMessage}}</div>
+    }
+    <div>
+      <button class="signin__button" (click)="logout()">Logout</button>
+    </div>
+    <div>
+      <button  (click)="toSignUpPage()">to signup page</button>
+    </div>
+  </div>
+</section>

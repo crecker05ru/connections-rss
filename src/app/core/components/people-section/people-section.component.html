@@ -1,0 +1,18 @@
+<section class="peoples-section">
+<div class="peoples-section__inner">
+<h2>Peoples section</h2>
+<div>Countdown to update {{countdown$ | async}}</div>
+<button (click)="update()" [disabled]="!canUpdate">Update</button>
+<!-- <button (click)="createConversation()">Create new conversation</button> -->
+<ul class="peoples-section__list"  >
+  <!-- <li><app-group-item [group]="item" ></app-group-item></li> -->
+  <!-- <li class="peoples-section__item" activeConversation [isTagged]="conversationIDs.includes(item.uid.S)"><a [routerLink]="['/conversation/{:conversationID}']">{{item.name.S}}</a> -->
+    <li class="peoples-section__item" *ngFor="let item of peoples?.Items"  activeConversation [isTagged]="companionIDs && companionIDs.includes(item.uid.S)"><a (click)="onUserClick(item.uid.S)">{{item.name.S}}</a>
+    <!-- @if(item.uid.S){
+      <button (click)="deleteConversation(item.uid.S)">X</button>
+    } -->
+  </li>
+</ul>
+</div>
+<app-toast-messages [text]="responseMessage"></app-toast-messages>
+</section>

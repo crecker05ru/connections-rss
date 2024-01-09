@@ -1,0 +1,45 @@
+<div class="group">
+  <my-modal id="group-delete-modal">
+    <p>Are you sure?</p>
+    <button class="button__modal" (click)="confirmDelete()">Delete</button>
+    <button  class="button__modal" (click)="modalService.close();">Close</button>
+  </my-modal>
+  <a [routerLink]="'/'">&#8592;Return</a>
+  @if(!canUpdate){<div>Countdown {{countdown$ | async}}</div>}
+  @if(isMyGroup){
+  <button class="button__standart" (click)="delete('group-delete-modal')">Delete</button>
+  }
+  <button  class="button__standart" (click)="update()" [disabled]="isMessagesLoading || !canUpdate">Update</button>
+  <!-- <p>Group name: {{groupID}}</p> -->
+  <div class="group__messages">
+    <div class="group__people-messages">
+      <ul class="group__messages-list" *ngIf="messages">
+        <!-- <li *ngFor="let item of Items" class="group__messages-item" [class]="{'my-message': userId === item.authorID.S}">
+          <div class="group__messages-head">
+            <span *ngIf="peoples && peoples.Items">Name {{item.authorID.S}}</span>
+            <span>Date {{item.createdAt.S | date:'medium'}}</span>
+          </div>
+          <div class="group__messages-text">{{item.message.S}}</div>
+        </li> -->
+        @if(peoplesData?.length){
+          <li *ngFor="let item of peoplesData" class="group__messages-item" [class]="{'my-message': userId === item.authorID}">
+            <div class="group__messages-head">
+              <span class="group__user-name" *ngIf="item">{{item.name}}</span>
+              <span>Date {{item.createdAt | date:'medium'}}</span>
+            </div>
+            <div class="group__messages-text">{{item.message}}</div>
+          </li>
+        }
+
+      </ul>
+      <div class="group__enter-message">
+        <textarea [formControl]="message" class="group__textarea"></textarea>
+        <button (click)="sendMessage()" [disabled]="message.invalid">Send</button>
+      </div>
+    </div>
+    <!-- <div class="group__my-messages">
+      <ul class="group__people-messages-list"></ul>
+    </div> -->
+  </div>
+  <app-toast-messages [text]="responseMessage"></app-toast-messages>
+</div>

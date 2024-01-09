@@ -1,0 +1,9 @@
+<section class="profile">
+<div class="profile__inner" >
+  <button class="profile__button button__logout"  (click)="logout()" [disabled]="isUserAuthLoading">Log out</button>
+  <app-profile-view *ngIf="profile" [profile]="profile" (saveEmit)="onSave($event)" [responseMessage]="responseMessage"></app-profile-view>
+  @if(responseMessage){
+    <div class="profile__response-message snackbar" [class]="{'snackbar__show':responseMessage}">{{responseMessage}}</div>
+  }
+</div>
+</section>

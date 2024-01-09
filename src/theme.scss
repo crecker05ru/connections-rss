@@ -1,0 +1,31 @@
+[data-theme="light"] {
+  --main-background-color: #ffffff;
+  --main-border-color: #e5e8ea;
+  --main-text-color: rgb(43, 43, 43);
+  --header-background-color: bisque;
+  --footer-background-color: bisque;
+  --link-color: rgb(0, 150, 150);
+  --link-hover-color :#7100b8;
+  --secondary-background-color: rgb(255, 169, 57);
+  --alt-background-color: rgb(96, 255, 202);
+  --svg-background-color: #0069ec;
+  --scrollbar-track-color: #c4c4c4;
+  --scrollbar-thumb-color: #dddddd;
+  --scrollbar-thumb-hover-color: #d6d6d6;
+}
+
+[data-theme="dark"] {
+  --main-background-color: #00272a;
+  --main-border-color: #e5e8ea;
+  --main-text-color: rgb(230, 230, 230);
+  --header-background-color: rgb(0, 23, 70);
+  --footer-background-color: rgb(0, 23, 70);
+  --link-color: rgb(0, 255, 255);
+  --link-hover-color: #b700ff;
+  --secondary-background-color: rgb(217, 134, 24);
+  --alt-background-color: rgb(0, 182, 199);
+  --svg-background-color: rgb(230, 230, 230);
+  --scrollbar-track-color: #555555;
+  --scrollbar-thumb-color: #00a0d0;
+  --scrollbar-thumb-hover-color: #006f91;
+}

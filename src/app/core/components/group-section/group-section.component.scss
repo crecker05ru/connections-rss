@@ -1,0 +1,50 @@
+.group-section {
+  &__list {
+    margin-top: 2rem;
+  }
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: rgba(0,0,222,0.5);
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+  }
+  a {
+    display: block;
+    width: 100%;
+    color: inherit;
+    overflow: hidden;
+  }
+}
+
+.button {
+  &__standart {
+    min-width: 120px;
+  }
+  &__modal {
+    max-width: 320px;
+    min-width: 120px;
+    margin-bottom: 1rem;
+  }
+  
+}
+
+.group-create {
+  &__label {
+    position: relative;
+    display: flex;
+    flex: 1 1 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 10px;
+    width: 100%;
+    margin-bottom: 2.2rem;
+  }
+  &__validation-message {
+    color: #ff0000;
+  }
+}

@@ -1,0 +1,62 @@
+.profile {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 200px);
+  }
+  &__response-message {
+    padding: 8px;
+    margin-top: 1rem;
+    color: #ff0000;
+    background-color: #e9e9e9;
+    border-radius: 5px;
+  }
+} 
+
+.snackbar {
+  visibility: hidden;
+  padding: 16px;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  border-radius: 5px;
+  &__show {
+      visibility: visible;
+      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+} 
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+.button {
+  &__logout {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    padding: 16px;
+    background-color: #ff8c00;
+    border-radius: 8px;
+  }
+}
